@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TAREA.views.inicioform1"
+             Title="Portal de Admisiones"
+             BackgroundColor="#FFFFFF">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="0">
+            <!-- Encabezado / Banner Superior -->
+            <Grid ColumnDefinitions="*, Auto" BackgroundColor="#2B5B84" Padding="15,10">
+                <Label Text="Formulario de Matrícula" 
+                       TextColor="White" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="Center" />
+                <Label Grid.Column="1" 
+                       Text="Portal de Admisiones" 
+                       TextColor="White" 
+                       FontAttributes="Bold" 
+                       VerticalOptions="Center" />
+            </Grid>
+
+            <!-- Contenido Principal -->
+            <VerticalStackLayout Padding="20" Spacing="15">
+                <!-- Títulos -->
+                <Label Text="FASE A - GRADO" 
+                       HorizontalOptions="Center" 
+                       FontSize="22" 
+                       FontAttributes="Bold" 
+                       TextColor="#0D3B66" />
+
+                <Label Text="Formulario de registro&#10;Complete la siguiente información para realizar su inscripción." 
+                       HorizontalOptions="Center" 
+                       HorizontalTextAlignment="Center" 
+                       FontSize="13" 
+                       TextColor="#555555" />
+
+                <!-- Layout Principal en Columnas (Formulario + Card Lateral) -->
+                <Grid ColumnDefinitions="2*, *" ColumnSpacing="20">
+
+                    <!-- Columna Izquierda: Formulario -->
+                    <VerticalStackLayout Grid.Column="0" Spacing="15">
+
+                        <!-- Sección Datos Personales (Marco/Border) -->
+                        <Border Stroke="#CCCCCC" StrokeThickness="1" Padding="15">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="Datos Personales" TextColor="#2B5B84" FontAttributes="Bold" />
+
+                                <!-- Identificación -->
+                                <Grid ColumnDefinitions="Auto, *, *" ColumnSpacing="10" RowDefinitions="Auto">
+                                    <Label Text="Identificación:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Picker x:Name="pickerTipoId" Grid.Column="1" Title="Tipo">
+                                        <Picker.ItemsSource>
+                                            <x:Array Type="{x:Type x:String}">
+                                                <x:String>CÉDULA</x:String>
+                                                <x:String>PASAPORTE</x:String>
+                                            </x:Array>
+                                        </Picker.ItemsSource>
+                                    </Picker>
+                                    <Entry x:Name="txtNumeroId" Grid.Column="2" Placeholder="Número" Keyboard="Numeric" />
+                                </Grid>
+
+                                <!-- Apellidos -->
+                                <Grid ColumnDefinitions="Auto, *, *" ColumnSpacing="10">
+                                    <Label Text="Apellidos:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Entry x:Name="txtApellidoPaterno" Grid.Column="1" Placeholder="Paterno" />
+                                    <Entry x:Name="txtApellidoMaterno" Grid.Column="2" Placeholder="Materno" />
+                                </Grid>
+
+                                <!-- Nombres completos -->
+                                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                                    <Label Text="Nombres completos:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Entry x:Name="txtNombres" Grid.Column="1" Placeholder="Nombres completos" />
+                                </Grid>
+
+                                <!-- Teléfono -->
+                                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                                    <Label Text="Teléfono personal:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Entry x:Name="txtTelefono" Grid.Column="1" Placeholder="Teléfono" Keyboard="Telephone" />
+                                </Grid>
+
+                                <!-- Correo personal -->
+                                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                                    <Label Text="Correo personal:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Entry x:Name="txtCorreo" Grid.Column="1" Placeholder="Correo personal" Keyboard="Email" />
+                                </Grid>
+
+                                <!-- Confirmar correo -->
+                                <Grid ColumnDefinitions="Auto, *" ColumnSpacing="10">
+                                    <Label Text="Confirmar correo:" VerticalOptions="Center" WidthRequest="110" />
+                                    <Entry x:Name="txtConfirmarCorreo" Grid.Column="1" Placeholder="Confirmar correo" Keyboard="Email" />
+                                </Grid>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <!-- Sección Académica -->
+                        <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto, Auto, Auto" RowSpacing="10" ColumnSpacing="10">
+                            <Label Text="Carrera:" Grid.Row="0" VerticalOptions="Center" WidthRequest="110" />
+                            <Picker x:Name="pickerCarrera" Grid.Row="0" Grid.Column="1" Title="Seleccione...">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Desarrollo de Software</x:String>
+                                        <x:String>Diseño Gráfico</x:String>
+                                        <x:String>Administración</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                            <Label Text="Modalidad:" Grid.Row="1" VerticalOptions="Center" WidthRequest="110" />
+                            <Picker x:Name="pickerModalidad" Grid.Row="1" Grid.Column="1" Title="Seleccione...">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Presencial</x:String>
+                                        <x:String>En Línea</x:String>
+                                        <x:String>Híbrida</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                            <Label Text="Campus:" Grid.Row="2" VerticalOptions="Center" WidthRequest="110" />
+                            <Picker x:Name="pickerCampus" Grid.Row="2" Grid.Column="1" Title="Seleccione...">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>Matriz</x:String>
+                                        <x:String>Norte</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+                        </Grid>
+
+                        <!-- Botón Enviar -->
+                        <Button Text="Enviar Inscripción" 
+                                Clicked="OnEnviarInscripcionClicked"
+                                BackgroundColor="#2B5B84" 
+                                TextColor="White" 
+                                HorizontalOptions="Center" 
+                                WidthRequest="200" 
+                                Margin="0,15,0,0"/>
+                    </VerticalStackLayout>
+
+                    <!-- Columna Derecha: Tarjetas de Información y Enlaces -->
+                    <VerticalStackLayout Grid.Column="1" Spacing="15">
+                        <Border BackgroundColor="#00839B" StrokeThickness="0" Padding="15">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Información" TextColor="White" FontAttributes="Bold" />
+                                <Label Text="📞 099 648 3605" TextColor="White" FontSize="12" />
+                                <Label Text="☎️ 02 255 5741 - Ext 101/102" TextColor="White" FontSize="12" />
+                                <Label Text="✉️ its@sudamericano.edu.ec" TextColor="White" FontSize="12" />
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border Stroke="#00839B" StrokeThickness="1" Padding="15">
+                            <VerticalStackLayout Spacing="8">
+                                <Label Text="Enlaces" TextColor="#00839B" FontAttributes="Bold" />
+                                <Label Text=">> Preguntas Frecuentes" TextColor="#333333" FontSize="12" />
+                                <Label Text=">> Calendario Académico" TextColor="#333333" FontSize="12" />
+                            </VerticalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                </Grid>
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

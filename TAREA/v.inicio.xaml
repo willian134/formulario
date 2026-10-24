@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TAREA.views.v_inicio"
+             Title="Formulario de Matrícula"
+             BackgroundColor="#F4F6F9">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <!-- Encabezado -->
+            <Label Text="FASE A - GRADO" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="#003366" 
+                   HorizontalOptions="Center" />
+
+            <Label Text="Formulario de registro&#10;Complete la siguiente información para realizar su inscripción." 
+                   FontSize="13" 
+                   TextColor="Gray" 
+                   HorizontalTextAlignment="Center" />
+
+            <!-- Tarjeta de Datos Personales -->
+            <Border Stroke="#CCCCCC"
+                    StrokeThickness="1"
+                    BackgroundColor="White"
+                    Padding="15">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Datos Personales" 
+                           FontAttributes="Bold" 
+                           FontSize="16" 
+                           TextColor="#003366" />
+
+                    <!-- Tipo y Número de Documento -->
+                    <Label Text="Identificación:" FontSize="13" TextColor="Black" />
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                        <Picker x:Name="pickerTipoDoc" Grid.Column="0" Title="Tipo">
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>CÉDULA</x:String>
+                                    <x:String>RUC</x:String>
+                                    <x:String>PASAPORTE</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+                        <Entry x:Name="txtNumeroDoc" Grid.Column="1" Placeholder="Número" Keyboard="Numeric" />
+                    </Grid>
+
+                    <!-- Apellidos Paterno y Materno -->
+                    <Label Text="Apellidos:" FontSize="13" TextColor="Black" />
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="10">
+                        <Entry x:Name="txtApellidoPaterno" Grid.Column="0" Placeholder="Paterno" />
+                        <Entry x:Name="txtApellidoMaterno" Grid.Column="1" Placeholder="Materno" />
+                    </Grid>
+
+                    <!-- Nombres completos -->
+                    <Label Text="Nombres completos:" FontSize="13" TextColor="Black" />
+                    <Entry x:Name="txtNombres" Placeholder="Nombres completos" />
+
+                    <!-- Teléfono personal -->
+                    <Label Text="Teléfono personal:" FontSize="13" TextColor="Black" />
+                    <Entry x:Name="txtTelefono" Placeholder="Teléfono" Keyboard="Telephone" />
+
+                    <!-- Correo personal -->
+                    <Label Text="Correo personal:" FontSize="13" TextColor="Black" />
+                    <Entry x:Name="txtCorreo" Placeholder="Correo personal" Keyboard="Email" />
+
+                    <!-- Confirmar correo -->
+                    <Label Text="Confirmar correo:" FontSize="13" TextColor="Black" />
+                    <Entry x:Name="txtConfirmarCorreo" Placeholder="Confirmar correo" Keyboard="Email" />
+
+                </VerticalStackLayout>
+            </Border>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
